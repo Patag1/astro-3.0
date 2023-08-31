@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets'
+interface Props {
+  href: string
+  title: string
+  image: string
+  body: string
+}
+
+const { href, title, image, body } = Astro.props
+---
+
+<li
+  class="list-none flex p-2 bg-[#23262d] bg-4xl rounded-lg transition-all drop-shadow-sm origin-bottom hover:scale-[1.025] [&>a>h2]:hover:text-fuchsia-200 duration-500 [&>a>h2>span]:hover:ml-2"
+>
+  <a
+    href={href}
+    class="w-full leading-5 px-2 py-1 rounded-lg text-white bg-[#23262d] bg-opacity-80"
+    target={title === 'Portfolio' ? '_blank' : '_self'}
+  >
+    <h2
+      class="m-0 text-xl font-semibold transition-all duration-500"
+      transition:name={`title/playlists`}
+    >
+      {title}
+      <span class="transition-all duration-500">&rarr;</span>
+    </h2>
+    <div class="w-full p-4">
+      <Image
+        src={image}
+        alt="alt"
+        width={50}
+        height={50}
+        class="w-full p-2 aspect-square object-cover bg-white"
+        transition:name={title}
+      />
+    </div>
+    <p class="my-2">
+      {body}
+    </p>
+  </a>
+</li>
