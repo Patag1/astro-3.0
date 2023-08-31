@@ -1,46 +1,22 @@
 ---
+import Input from '../components/Input'
 import Layout from '../layouts/Layout.astro'
-import Card from '../components/Card.astro'
 import { ViewTransitions } from 'astro:transitions'
-import Main from '../components/Main.astro'
-
-const cards = [
-  {
-    href: '/playlists',
-    title: 'Playlists',
-    body: 'Take a look at these playlists made by me!',
-    image: 'https://i.imgur.com/CNIsgIP.png',
-  },
-  {
-    href: 'https://augustosasso.vercel.app/',
-    title: 'Portfolio',
-    body: 'Check out my portfolio, you\'ll really like it',
-    image: 'https://i.imgur.com/io6z27m.png',
-  },
-  {
-    href: '/contact',
-    title: 'Contacts',
-    body: 'Interested in working with me? Let\'s build stuff',
-    image: 'https://images.unsplash.com/photo-1557180295-76eee20ae8aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHBob25lfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
-  },
-]
 ---
 
-<Layout title="First Astro look-at">
-  <Main>
-    <h1 class="mb-4 text-4xl font-bold">Hello to Astro 3.0!</h1>
+<Layout title="Astro 3.0">
+  <main class="max-w-[80ch] mx-auto my-32">
+    <h1 class="mb-4 text-4xl font-bold" transition:name="title">
+      Hello to Astro 3.0!
+    </h1>
     <p class="mb-6">
       Exited to build new stuff with these cool transitions. Companies should
       really embrace these technologies as programmers do. If programmers tell
       you this framework is good, they know their stuff 🔥
     </p>
-    <article class="grid grid-cols-3 gap-4">
-      {
-        cards.map((card) => (
-          <Card href={card.href} title={card.title} body={card.body} image={card.image} />
-        ))
-      }
+    <article>
+      <Input client:visible />
     </article>
-    <ViewTransitions />
-  </Main>
+  </main>
+  <ViewTransitions />
 </Layout>
