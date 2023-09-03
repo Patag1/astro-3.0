@@ -1,14 +1,14 @@
 ---
-import Input from '../components/Input'
 import Layout from '../layouts/Layout.astro'
+import Input from '../components/Input.svelte'
+import { Image } from 'astro:assets'
+import Results from '../components/Results.svelte'
 import { ViewTransitions } from 'astro:transitions'
 ---
 
 <Layout title="Astro 3.0">
-  <main class="max-w-[80ch] mx-auto my-32">
-    <h1 class="mb-4 text-4xl font-bold" transition:name="title">
-      Hello to Astro 3.0!
-    </h1>
+  <main class="max-w-[80ch] mx-auto my-32 px-8 border-x-2">
+    <h1 class="mb-4 text-4xl font-bold">Hello to Astro 3.0!</h1>
     <p class="mb-6">
       Exited to build new stuff with these cool transitions. Companies should
       really embrace these technologies as programmers do. If programmers tell
@@ -16,7 +16,20 @@ import { ViewTransitions } from 'astro:transitions'
     </p>
     <article>
       <Input client:visible />
+      <div class="flex justify-center">
+        <a href="/404" class="mx-auto my-8">
+          <Image
+            src="https://i.imgur.com/vQRTdTd.png"
+            alt="cover"
+            width={200}
+            height={200}
+            class="p-4 bg-gray-100 object-cover hover:scale-105 transition-transform duration-300"
+            transition:name="404"
+          />
+        </a>
+      </div>
     </article>
+    <Results client:visible />
   </main>
   <ViewTransitions />
 </Layout>

@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '../layouts/Layout.astro'
+import { ViewTransitions } from 'astro:transitions'
+---
+
+<Layout title="Not found">
+  <main class="max-w-[80ch] mx-auto my-32 px-8 border-x-2">
+    <section class="my-4 flex justify-between items-center">
+      <h1 class="mb-4 text-4xl font-bold">No search results!</h1>
+      <a
+        href="/"
+        class="px-3 py-1 text-lg bg-neutral-600 text-neutral-100 font-semibold rounded-md hover:brightness-110 transition-all"
+        >back</a
+      >
+    </section>
+    <article class="grid grid-cols-[auto_auto] gap-x-8">
+      <div>
+        <Image
+          src="https://i.imgur.com/vQRTdTd.png"
+          alt="404"
+          width={300}
+          height={300}
+          class="p-4 bg-gray-100 object-cover"
+          transition:name="404"
+        />
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+        ratione nemo deserunt, quod dolores quae et perferendis alias quos amet,
+        laborum eos expedita ea quas corrupti nobis magnam delectus. In!
+      </p>
+    </article>
+  </main>
+  <ViewTransitions />
+</Layout>
