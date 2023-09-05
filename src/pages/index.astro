@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro'
 import Input from '../components/Input.svelte'
 import { Image } from 'astro:assets'
 import Results from '../components/Results.svelte'
-import { ViewTransitions } from 'astro:transitions'
 ---
 
 <Layout title="Astro 3.0">
@@ -31,5 +30,4 @@ import { ViewTransitions } from 'astro:transitions'
     </article>
     <Results client:visible />
   </main>
-  <ViewTransitions />
 </Layout>
